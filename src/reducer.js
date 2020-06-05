@@ -1,7 +1,8 @@
 export const initialState = {
   role: null,
   started: false,
-  winner: null
+  winner: null,
+  tie: false
 };
 
 export default function reducer(state, action) {
@@ -12,6 +13,8 @@ export default function reducer(state, action) {
       return { ...state, started: true };
     case 'RESULTS':
       return { ...state, winner: action.payload };
+    case 'DRAW':
+      return { ...state, tie: action.payload };
     case 'HELLO':
       return { state };
     default: 
